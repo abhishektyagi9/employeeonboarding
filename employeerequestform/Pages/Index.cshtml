@@ -1,0 +1,55 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">  
+    <div class="col-md-12">
+ <form method="post" action="">
+     FirstName:
+      <input type="text"   
+             data-val-required="The First name field is required."
+             id="firstname" name="firstname" value=""><br>
+      LastName:
+      <input type="text"   
+             data-val-required="The LastName field is required."
+             id="lastname" name="lastname" value=""><br>
+        Alias:
+      <input type="text"   
+             data-val-required="The alias name field is required."
+             id="alias" name="alias" value=""><br>
+      Email:
+      <input type="email" data-val="true"
+             data-val-email="The Email Address field is not a valid email address."
+             data-val-required="The Email Address field is required."
+             id="Email" name="Email" value=""><br>
+
+       Start Data:
+      <input type="datetime"   
+             data-val-required="The alias name field is required."
+             id="startdate" name="startdate" value=""><br>
+    Department:
+    <input type="text"   
+             data-val-required="The department name field is required."
+             id="department" name="department" value=""><br>
+    Manager Alias
+     <input type="text"   
+             data-val-required="The department name field is required."
+             id="manageralias" name="manageralias" value=""><br>
+      Manager Email:
+      <input type="email" data-val="true"
+             data-val-email="The Email Address field is not a valid email address."
+             data-val-required="The Email Address field is required."
+             id="managerEmail" name="managerEmail" value=""><br>
+
+     Social Security:
+      <input type="file" id="socialfile" name="socialfile"><br />
+     Driving License:
+      <input type="file" id="drivinglicense" name="drivinglicense"><br />
+
+      <input type="submit">
+          <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
+   </form>
+</div>
+</div>
