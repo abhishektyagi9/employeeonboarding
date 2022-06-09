@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: onboarding-front
+
+spec:
+
+  replicas: 2
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+
+      maxSurge: 1
+
+      maxUnavailable: 1
+
+  minReadySeconds: 5 
+  selector:
+    matchLabels:
+      app: onboarding-front
+  template:
+
+    metadata:
+
+      labels:
+
+        app: onboarding-front
+
+    spec:
+
+      containers:
+
+      - name: onboarding-front
+
+        image: acrdemok8heath.azurecr.io/employeeonboardingmvc:20220603204317
+
+        imagePullPolicy: Always
+
+        ports:
+
+        - containerPort: 80
+
+        resources:
+
+          requests:
+
+            cpu: 250m
+
+          limits:
+
+                cpu: 500m
+
+---
+
+apiVersion: v1
+
+kind: Service
+
+metadata:
+
+  name: onboarding-front
+
+spec:
+
+  type: LoadBalancer
+
+  ports:
+
+  - port: 80
+
+  selector:
+    app: onboarding-front
